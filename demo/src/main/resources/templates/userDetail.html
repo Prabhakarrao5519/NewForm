@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>All Users</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f7f7f7;
+            padding: 40px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .user-list {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .user-card {
+            background: #ffffff;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .user-card span {
+            display: block;
+            margin: 5px 0;
+            color: #444;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #5e60ce;
+            font-weight: bold;
+        }
+
+        a:hover {
+            color: #4ea8de;
+        }
+    </style>
+</head>
+<body>
+    <h2>All Registered Users</h2>
+
+    <div class="user-list">
+        <div th:each="user : ${users}" class="user-card">
+            <span><strong>Name:</strong> <span th:text="${user.name}">Name</span></span>
+            <span><strong>Email:</strong> <span th:text="${user.email}">Email</span></span>
+        </div>
+    </div>
+
+    <div style="text-align: center;">
+        <a th:href="@{/form}">Go Back to Form</a>
+    </div>
+</body>
+</html>

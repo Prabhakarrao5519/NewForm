@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>All Users</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f7f7f7;
+            padding: 40px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .user-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .user-card {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .user-card span {
+            display: block;
+            margin: 5px 0;
+            color: #444;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 10px;
+            text-decoration: none;
+            color: #5e60ce;
+            font-weight: bold;
+        }
+
+        a:hover {
+            color: #4ea8de;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+
+        .button-group a {
+            padding: 6px 12px;
+            border-radius: 5px;
+            background-color: #e0e0ff;
+        }
+
+        .button-group a:last-child {
+            background-color: #ffe0e0;
+        }
+
+        .button-group a:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <h2>All Registered Users</h2>
+
+    <div class="user-list">
+        <div th:each="user : ${users}" class="user-card">
+            <span><strong>Name:</strong> <span th:text="${user.name}">Name</span></span>
+            <span><strong>Email:</strong> <span th:text="${user.email}">Email</span></span>
+
+            <!-- Edit and Delete buttons -->
+            <div class="button-group">
+                <a th:href="@{/edit/{id}(id=${user.id})}" class="button">Edit</a>
+                <a th:href="@{/delete/{id}(id=${user.id})}" class="button" style="color: red;">Delete</a>
+            </div>
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 30px;">
+        <a th:href="@{/form}">Go Back to Form</a>
+    </div>
+</body>
+</html>

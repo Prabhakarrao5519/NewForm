@@ -1,0 +1,99 @@
+<!-- src/main/resources/templates/form.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>User Form</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #e0eafc, #cfdef3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        form {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2),
+                        0 6px 6px rgba(0, 0, 0, 0.2);
+            width: 350px;
+            transform: perspective(1000px) rotateX(3deg);
+            transition: all 0.3s ease-in-out;
+        }
+
+        form:hover {
+            transform: perspective(1000px) rotateX(0deg);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input[type="text"],
+        input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.05);
+            transition: all 0.2s ease-in-out;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus {
+            outline: none;
+            border-color: #66afe9;
+            box-shadow: 0 0 10px rgba(102, 175, 233, 0.6);
+        }
+
+        button {
+            width: 100%;
+            margin-top: 25px;
+            padding: 12px;
+            background: #5e60ce;
+            border: none;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s ease-in-out, transform 0.2s;
+        }
+
+        button:hover {
+            background: #4ea8de;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <form action="#" th:action="@{${user.id == null} ? '/submit' : '/update'}" th:object="${user}" method="post">
+        <h2 th:text="${user.id == null ? 'Create User' : 'Edit User'}">User Form</h2>
+
+        <label>Name:</label>
+        <input type="text" th:field="*{name}" required />
+
+        <label>Email:</label>
+        <input type="email" th:field="*{email}" required />
+
+        <button type="submit" th:text="${user.id == null ? 'Submit' : 'Update'}">Submit</button>
+    </form>
+    
+</body>
+</html>

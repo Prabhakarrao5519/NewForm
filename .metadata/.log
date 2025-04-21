@@ -1,0 +1,19 @@
+!SESSION 2025-04-19 12:14:24.180 -----------------------------------------------
+eclipse.buildId=4.3.2.M20140221-1700
+java.version=1.8.0_211
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_IN
+Framework arguments:  -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product -data C:\Users\OZDOCS\Downloads\NewProject -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2025-04-19 12:14:43.254
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\OZDOCS'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2025-04-19 12:15:56.935
+!MESSAGE Failed to read Maven project: 1 problem was encountered while building the effective model for com.example:demo:0.0.1-SNAPSHOT
+[FATAL] Non-resolvable parent POM: Failure to transfer org.springframework.boot:spring-boot-starter-parent:pom:3.4.4 from http://repo.maven.apache.org/maven2 was cached in the local repository, resolution will not be reattempted until the update interval of central has elapsed or updates are forced. Original error: Could not transfer artifact org.springframework.boot:spring-boot-starter-parent:pom:3.4.4 from/to central (http://repo.maven.apache.org/maven2): Failed to transfer http://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-starter-parent/3.4.4/spring-boot-starter-parent-3.4.4.pom. Error code 501, HTTPS Required and 'parent.relativePath' points at no local POM @ line 5, column 10
+ for project com.example:demo:0.0.1-SNAPSHOT at C:\Users\OZDOCS\Downloads\NewProject\demo\pom.xml
